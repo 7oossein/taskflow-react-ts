@@ -1,0 +1,334 @@
+/* ===== NAVBAR ===== */
+
+nav {
+    height: 75px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav h2 {
+    color: var(--primary);
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+nav span {
+    margin-left: auto;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+nav button {
+    background: #f1f0ff;
+    color: var(--primary);
+    padding: 10px 16px;
+}
+
+nav button:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ===== PAGES ===== */
+
+main {
+    width: min(92%, 900px);
+    margin: 45px auto;
+    padding: 35px;
+    background: white;
+    border: 1px solid rgba(233, 235, 242, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(35, 42, 75, 0.06);
+}
+
+main h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: -1.2px;
+    margin-bottom: 10px;
+}
+
+main > p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* ===== FORMULAIRE D'AJOUT ===== */
+
+main form {
+    display: flex;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+main form input {
+    flex: 1;
+}
+
+main form button {
+    min-width: 115px;
+}
+
+/* ===== FILTRES ===== */
+
+main > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+main > div button {
+    background: #f3f4f8;
+    color: #64748b;
+    padding: 10px 17px;
+    font-size: 13px;
+}
+
+main > div button:hover {
+    background: #e9e7ff;
+    color: var(--primary);
+}
+
+/* ===== LISTE DES TÂCHES ===== */
+
+ul {
+    list-style: none;
+}
+
+li {
+    padding: 17px 18px;
+    margin-bottom: 12px;
+    background: #fafbfe;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    transition: 0.2s;
+}
+
+li:hover {
+    border-color: #c9c5ff;
+    background: #fcfcff;
+    transform: translateY(-2px);
+}
+
+/* ===== PAGES CONNEXION / INSCRIPTION ===== */
+
+main:has(form) {
+    max-width: 480px;
+}
+
+main:has(form) h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+main:has(form) form {
+    flex-direction: column;
+}
+
+main:has(form) form button {
+    width: 100%;
+    padding: 14px;
+}
+
+main:has(form) > p {
+    text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+    nav {
+        height: 65px;
+        padding: 0 15px;
+    }
+
+    nav h2 {
+        font-size: 21px;
+    }
+
+    nav span {
+        font-size: 12px;
+    }
+
+    nav button {
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    main {
+        width: 94%;
+        margin: 25px auto;
+        padding: 22px 17px;
+        border-radius: 15px;
+    }
+
+    main form {
+        flex-direction: column;
+    }
+
+    main form button {
+        width: 100%;
+    }
+}
+.filtres button.actif {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(98, 88, 232, 0.2);
+}
+
+/* ===== NOUVELLE LISTE DES TÂCHES ===== */
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tache-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 20px;
+    margin: 0;
+    background: white;
+    border: 1px solid #ececf3;
+    border-radius: 14px;
+    transition: 0.2s ease;
+}
+
+.tache-item:hover {
+    border-color: #c8c3ff;
+    box-shadow: 0 5px 18px rgba(60, 50, 150, 0.07);
+    transform: translateY(-2px);
+}
+
+.tache-contenu {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    flex: 1;
+}
+
+.tache-texte {
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.btn-check {
+    width: 23px;
+    height: 23px;
+    min-width: 23px;
+    padding: 0;
+    border: 2px solid #c9c7dc;
+    border-radius: 7px;
+    background: white;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-check:hover,
+.terminee .btn-check {
+    background: #6258e8;
+    border-color: #6258e8;
+}
+
+.tache-statut {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6258e8;
+    background: #f0efff;
+    padding: 6px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.terminee .tache-texte {
+    color: #a0a5b2;
+    text-decoration: line-through;
+}
+
+.terminee .tache-statut {
+    color: #16845b;
+    background: #eafaf3;
+}
+
+.tache-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tache-actions button {
+    padding: 8px 12px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.btn-modifier {
+    background: #f0efff;
+    color: #6258e8;
+}
+
+.btn-modifier:hover {
+    background: #6258e8;
+    color: white;
+}
+
+.btn-supprimer {
+    background: #fff0f1;
+    color: #dc4657;
+}
+
+.btn-supprimer:hover {
+    background: #dc4657;
+    color: white;
+}
+
+.tache-edition {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.btn-annuler {
+    background: #eef0f5;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    .tache-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tache-contenu {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .tache-actions {
+        width: 100%;
+    }
+
+    .tache-edition {
+        flex-wrap: wrap;
+    }
+}
